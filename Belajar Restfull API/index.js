@@ -2,12 +2,18 @@ const express = require('express');
 
 const app = express();
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.get('/orders', (req, res) => {
-   res.send('get orders');
+   const { item, qty } = req.query;
+
+   res.send(`GET ORDERS: ${item} - ${qty}`);
 });
 
 app.post('/orders', (req, res) => {
-   res.send('post orders');
+   const { item, qty } = req.body;
+   res.send(`POST ORDERS: ${item} - ${qty}`);
 });
 
 app.listen(8080, () => {
