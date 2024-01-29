@@ -3,11 +3,19 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title><%= tag  %></title>
+   <title><% data.title %></title>
 </head>
 <body>
-   <h1>Article : <%= tag  %></h1>
-
-   <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit aperiam beatae, illum tempore similique nulla ratione a? Laudantium impedit odio aliquid, ullam reiciendis nisi suscipit optio quos consectetur mollitia autem!</p>
+   <h1>Tags : <%= data.title  %></h1>
+   <h4>Description: <%= data.description  %></h4>
+   <h4>Followers: <%= data.followers  %></h4>
+   <hr>
+   <br>
+   <h5>Post</h5>
+   <ul>
+      <% for (let post of data.posts) { %>
+         <li><%= post.title  %> - <%= post.author %></li>
+      <% } %>
+   </ul>
 </body>
 </html>

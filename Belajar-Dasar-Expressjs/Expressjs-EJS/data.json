@@ -1,0 +1,28 @@
+{
+   "javascript": {
+      "title": "Javascript",
+      "description": "deskripsi Javascript",
+      "followers": 2022,
+      "posts": [
+         {
+            "title": "Membuat array di javascript",
+            "author": "codepolitan"
+         },
+         {
+            "title": "Bagaimana melakukan sorting di javascript",
+            "author": "devcode"
+         }
+      ]
+   },
+   "react": {
+      "title": "Reactjs",
+      "description": "deskripsi Reactjs",
+      "followers": 4000,
+      "posts": [
+         {
+            "title": "Perbedaan antara functionanl component dan class component",
+            "author": "codeacademy"
+         }
+      ]
+   }
+}

@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const initialData = require('./data.json');
 
 const app = express();
 
@@ -17,9 +18,16 @@ app.get('/random', (req, res) => {
 });
 
 app.get('/t/:tag', (req, res) => {
-   const { tag } = req.query;
+   const { tag } = req.params;
 
-   res.render('tag', { tag });
+   const data = initialData[tag];
+
+   console.log(tag);
+   if (data) {
+      res.render('tag', { data });
+   } else {
+      res.render('notfound', { tag });
+   }
 });
 
 app.get('/pats', (req, res) => {
