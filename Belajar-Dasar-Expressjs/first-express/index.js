@@ -10,6 +10,13 @@ app.get('/cats', (req, res) => {
    res.send('This is carts page');
 });
 
+// Route Parameter
+app.get('/blogs/:judul', (req, res) => {
+   const { judul } = req.params;
+
+   res.send(`Anda sedang melihat blog dengan judul: ${judul}`);
+});
+
 app.get('/about', (req, res) => {
    res.send('This is about page');
 });
