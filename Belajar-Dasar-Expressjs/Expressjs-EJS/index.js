@@ -11,9 +11,15 @@ app.get('/', (req, res) => {
 });
 
 app.get('/random', (req, res) => {
-   const random = Math.floor((Math.random() * 10));
+   const random = Math.floor(Math.random() * 10);
 
    res.render('random', { random });
+});
+
+app.get('/t/:tag', (req, res) => {
+   const { tag } = req.query;
+
+   res.render('tag', { tag });
 });
 
 app.listen(8080, () => {
