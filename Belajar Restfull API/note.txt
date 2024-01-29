@@ -1,0 +1,12 @@
+Perbedaan Method Get dan Post
+Get:
+- Digunakan untuk menarik/menerima data
+- Data dikirim melalui query string
+- Informasi yang dikirim terlihat di URL!
+- Jumlah data yang dikirim terbatas.
+
+POST:
+- Digunakan untuk mengirim data ke server
+- Digunakan pada saat membuat/mengubah data
+- Data dikirim melalui body bukan query string!
+- Dapat mengirim data dengan tipe JSON.
