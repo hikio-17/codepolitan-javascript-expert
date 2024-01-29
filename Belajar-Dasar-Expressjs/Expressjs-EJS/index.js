@@ -10,6 +10,12 @@ app.get('/', (req, res) => {
    res.render('home');
 });
 
+app.get('/random', (req, res) => {
+   const random = Math.floor((Math.random() * 10));
+
+   res.render('random', { random });
+});
+
 app.listen(8080, () => {
    console.log('server running at http://localhost:8080');
 });
