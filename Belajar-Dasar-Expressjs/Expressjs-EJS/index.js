@@ -22,6 +22,14 @@ app.get('/t/:tag', (req, res) => {
    res.render('tag', { tag });
 });
 
+app.get('/pats', (req, res) => {
+   const pats = {
+      cats: ['Embul', 'Felix', 'Tiny'],
+   };
+
+   res.render('pats', { cats: pats.cats })
+})
+
 app.listen(8080, () => {
    console.log('server running at http://localhost:8080');
 });
