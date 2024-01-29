@@ -17,6 +17,16 @@ app.get('/blogs/:judul', (req, res) => {
    res.send(`Anda sedang melihat blog dengan judul: ${judul}`);
 });
 
+// Query String
+app.get('/search', (req, res) => {
+   const { q } = req.query;
+
+   if (!q) {
+      res.send('Tidak ada data yang dicari');
+   }
+   res.send(`Anda mencari dengan value: ${q}`)
+})
+
 app.get('/about', (req, res) => {
    res.send('This is about page');
 });
