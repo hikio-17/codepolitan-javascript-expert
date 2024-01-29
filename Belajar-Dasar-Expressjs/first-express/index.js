@@ -22,7 +22,7 @@ app.get('/search', (req, res) => {
    const { q } = req.query;
 
    if (!q) {
-      res.send('Tidak ada data yang dicari');
+      res.send('Tidak ada data yang')
    }
    res.send(`Anda mencari dengan value: ${q}`)
 })
