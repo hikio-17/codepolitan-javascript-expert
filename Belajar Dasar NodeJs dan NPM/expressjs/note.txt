@@ -1,0 +1,5 @@
+Express mambantu kita 
+- Menjalanakan server untuk menerima request
+- Mengurangi (parsing) request yang datang
+- Mencocokkan request ke suatu route tertentu
+- Bikin http response dan mengumpulkan konten untuk ditampilkan

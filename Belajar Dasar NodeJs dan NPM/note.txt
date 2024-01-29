@@ -1,0 +1,3 @@
+NPM
+- Sebuah pustaka yang memiliki ribuan packages yang bebas kita gunakan untuk mempermudah pengembangan.
+- Tools berbasis CLI yang memudahkan kita memulai membuat project atau menginstall package yang ada di pustakanya.
