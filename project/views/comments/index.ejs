@@ -10,8 +10,13 @@
 
     <ul>
       <% comments.forEach(comment => { %>
-      <li><%= comment.text %> - <%= comment.username %></li>
+      <li>
+         <%= comment.text.substring(0, 15) + ' ...' %> - <%= comment.username %>
+         <a href="/comments/<%= comment.id %>">Detail</a>
+      </li>
       <% }) %>
     </ul>
+
+    <a href="/comments/create">Add</a>
   </body>
 </html>

@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 
@@ -10,11 +11,11 @@ app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 const comments = [
-   { username: "User1", text: "Ini adalah komentar pertama." },
-   { username: "User2", text: "Saya setuju dengan pendapat Anda." },
-   { username: "User3", text: "Terima kasih atas informasinya." },
-   { username: "User4", text: "Apa pendapat Anda tentang topik ini?" },
-   { username: "User5", text: "Sangat menarik, saya ingin tahu lebih banyak." }
+   { id: uuidv4(), username: "User1", text: "Ini adalah komentar pertama." },
+   { id: uuidv4(), username: "User2", text: "Saya setuju dengan pendapat Anda." },
+   { id: uuidv4(), username: "User3", text: "Terima kasih atas informasinya." },
+   { id: uuidv4(), username: "User4", text: "Apa pendapat Anda tentang topik ini?" },
+   { id: uuidv4(), username: "User5", text: "Sangat menarik, saya ingin tahu lebih banyak." }
  ];
  
 
@@ -28,9 +29,15 @@ app.get('/comments/create', (req, res) => {
    res.render('comments/create');
 });
 
+app.get('/comments/:id', (req, res) => {
+   const { id } = req.params;
+   const comment = comments.find((comment) => comment.id === id);
+   res.render('comments/show', { comment });
+});
+
 app.post('/comments', (req, res) => {
    const { username, text } = req.body;
-   comments.push({ username, text });
+   comments.push({ id: uuidv4(), username, text });
    res.redirect('/comments');
 });
 
