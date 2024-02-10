@@ -1,11 +1,13 @@
 const path = require('path');
 const express = require('express');
 const { v4: uuidv4 } = require('uuid');
+const methodOverride = require('method-override')
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method'));
 
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
@@ -38,6 +40,23 @@ app.get('/comments/:id', (req, res) => {
 app.post('/comments', (req, res) => {
    const { username, text } = req.body;
    comments.push({ id: uuidv4(), username, text });
+   res.redirect('/comments');
+});
+
+app.get('/comments/:id/edit', (req, res) => {
+   const { id } = req.params;
+   const comment = comments.find((comment) => comment.id === id);
+
+   res.render('comments/edit', { comment });
+});
+
+app.patch('/comments/:id', (req, res) => {
+   const { id } = req.params;
+   const { text } = req.body;
+   const oldComment = comments.find((comment) => comment.id === id);
+
+   oldComment.text = text;
+
    res.redirect('/comments');
 });
 
