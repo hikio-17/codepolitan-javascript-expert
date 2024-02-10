@@ -10,3 +10,6 @@ POST:
 - Digunakan pada saat membuat/mengubah data
 - Data dikirim melalui body bukan query string!
 - Dapat mengirim data dengan tipe JSON.
+
+REST: Representational State Transfer
+-> Sebuah arsitektur sistem terdistribusi. Sederhananya adalah panduan komunikasi data untuk CRUD antara client dan server.
