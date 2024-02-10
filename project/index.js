@@ -12,7 +12,7 @@ app.use(methodOverride('_method'));
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
-const comments = [
+let comments = [
    { id: uuidv4(), username: "User1", text: "Ini adalah komentar pertama." },
    { id: uuidv4(), username: "User2", text: "Saya setuju dengan pendapat Anda." },
    { id: uuidv4(), username: "User3", text: "Terima kasih atas informasinya." },
@@ -56,6 +56,13 @@ app.patch('/comments/:id', (req, res) => {
    const oldComment = comments.find((comment) => comment.id === id);
 
    oldComment.text = text;
+
+   res.redirect('/comments');
+});
+
+app.delete('/comments/:id', (req, res) => {
+   const { id } = req.params;
+   comments = comments.filter((comment) => comment.id !== id);
 
    res.redirect('/comments');
 });
