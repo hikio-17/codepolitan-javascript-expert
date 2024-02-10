@@ -24,6 +24,16 @@ app.get('/comments', (req, res) => {
    res.render('comments', { comments });
 });
 
+app.get('/comments/create', (req, res) => {
+   res.render('comments/create');
+});
+
+app.post('/comments', (req, res) => {
+   const { username, text } = req.body;
+   comments.push({ username, text });
+   res.redirect('/comments');
+});
+
 app.listen(PORT, () => {
    console.log(`server running at http://localhost:${PORT}`);
 });
